@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Job Quiz by Karim</title>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="css/fonts.css"> -->
+    <link rel="icon" href="favicon.ico" sizes="256" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="library/XMLhttpRQCustom.class.js"></script>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li id=menu1>VIDEO GAMES</li>
+            <li id=menu2>CONTACT</li>
+        </ul>
+    </header>
+    <div class="contents">
+        <div class="page1" id="page1">
+            <nav>
+                <form>
+                    <fieldset class=fs1>
+                        <h3>Filter Results</h3>
+                    </fieldset>
+                    <fieldset class=fs2>
+                        <label for="searchStr">Name (contains)</label>
+                        <input type="text" name=searchStr id=searchStr placeholder="Text String">
+                    </fieldset>
+                    <fieldset class=fs3>
+                        <div class="minScore">
+                            <label for="minScore">Minimum Score</label>
+                            <input name=minScore id=minScore inputmode="numeric" max=10 min=1 placeholder="1 - 10" step="1" type="number">
+                        </div>
+                        <div class=orderBys>
+                            <label for="orderBys">Order by</label>
+                            <div class="sortDirection">
+                                <button type="button" id=toggleSort class="uparrow">&uArr;</button>
+                                <input list="orderbys" placeholder="Select" name=orderby id=orderby class="orderby">
+                                <datalist id=orderbys hidden class=list>
+                                    <option>Release Date</option>
+                                    <option>Score</option>
+                                    <option>Name</option>
+                                </datalist>
+                                <button type="button" class="clear" id=clear>clear</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </nav>
+            <main class=cards>
+            </main>
+        </div>
+        <div class="page2" id=page2>
+            <main class=contact>
+                <h2>GET IN TOUCH</h2>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, vero deleniti a, quaerat veniam in laboriosam labore dolores odit nihil nesciunt? Perspiciatis assumenda odit minus ex accusamus officiis sint laboriosam.</P>
+                <form action="mailto:hello@yahoo.com" name="form2">
+                    <label for="form2">Contact Form</label>
+                    <div class="info">
+                        <div class=cname>
+                            <label for="contactName">Name<sup>*</sup></label>
+                            <input type="text" name="contactName" id="contactName" placeholder="Full Name">
+                        </div>
+                        <div class=cemail>
+                            <label for="email">Email Address<sup>*</sup></label>
+                            <input type="text" name="email" id="email" placeholder="E-Mail Address">
+                        </div>
+                        <div class=cmessage>
+                            <label for="message">Message<sup>*</sup></label>
+                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <button type="reset">SEND</button>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script src="readData.js"></script>
+</body>
+
+</html>

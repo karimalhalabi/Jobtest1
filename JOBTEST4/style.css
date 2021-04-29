@@ -1,0 +1,547 @@
+@keyframes hidePage {
+    0% {
+        opacity: 1;
+        z-index: 249;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    99% {
+        opacity: 0.05;
+    }
+    100% {
+        opacity: 0;
+        z-index: 1;
+    }
+}
+
+@keyframes showPage {
+    0% {
+        opacity: 0;
+        z-index: 1;
+    }
+    1% {
+        opacity: 0.05;
+    }
+    99% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+        z-index: 249;
+    }
+}
+
+* {
+    /*Setting up Project color theme */
+    /* Body Background */
+    --GRAD1-CLR: #081221;
+    --GRAD2-CLR: #03080f;
+    /* Card/panel Background */
+    --CARD-CLR: #0e1a2b;
+    /* Heading/Button Text/Labels */
+    --CONTROLS: #ffffff;
+    /* Text */
+    --TEXT: #c1d1e8;
+    /* Input Background*/
+    --INPUT: #182c47;
+    /* Buttons/Accent blue*/
+    --BTN-ACCENT: #5692e8;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-family: "Montserrat", sans-serif;
+    color: var(--CONTROLS)
+}
+
+:root {
+    font-size: 100%;
+}
+
+body,
+html {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, var(--GRAD1-CLR), var(--GRAD2-CLR));
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 250;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+    padding: 6px 15px;
+    font: 24px bolder;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.contents {
+    position: absolute;
+    top: 70px;
+    left: 1px;
+    right: 1px;
+    height: 100%;
+}
+
+.page1 {
+    position: absolute;
+    top: 10px;
+    left: 1px;
+    right: 1px;
+    height: 100%;
+    display: grid;
+    grid-auto-columns: 25% 70%;
+    grid-auto-rows: 100%;
+    column-gap: 1.2vw;
+    opacity: 1;
+    z-index: 249;
+    transition: all 4000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav {
+    grid-area: nav;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.page1 form {
+    width: 70%;
+    max-height: 450px;
+    background-color: var(--CARD-CLR);
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 15% 25% auto;
+    box-shadow: 0px 0px 1px 2px rgb(25, 25, 0, 05);
+    padding: 0.5vw;
+    margin: 5px;
+    margin-left: 25%;
+}
+
+fieldset {
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.fs2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.fs3 {
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 50% auto;
+}
+
+.minScore {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+}
+
+.orderBys {
+    display: flex;
+    flex-direction: column;
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+}
+
+.sortDirection {
+    display: grid;
+    grid-auto-columns: 25% 50% 25%;
+    grid-auto-rows: 50% 50%;
+    width: 100%;
+}
+
+button {
+    border: none !important;
+    outline: none !important;
+    width: 100%;
+    padding: 0.5vw;
+    background-color: var(--BTN-ACCENT);
+}
+
+.uparrow {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.clear {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.orderby {
+    width: calc(100% - 1vw);
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    padding: 0.5vw;
+}
+
+input,
+textarea {
+    border: none !important;
+    outline: none !important;
+    padding: 0.5vw;
+    background-color: var(--INPUT);
+}
+
+.list {
+    background-color: var(--INPUT);
+}
+
+.cards {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: auto;
+    width: 100%;
+    height: calc(100% - 75px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* scroll-behavior: smooth; */
+}
+
+section {
+    grid-column: 1;
+    display: grid;
+    grid-auto-columns: 15% 85%;
+    grid-auto-rows: auto;
+    width: 100%;
+    background-color: var(--GRAD2-CLR);
+    margin-top: 10px;
+}
+
+article {
+    grid-column: 2;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    background-color: var(--CARD-CLR);
+    box-shadow: 0px 0px 3px 4px #03080f;
+}
+
+.thumb {
+    width: 100%;
+}
+
+.thumb img {
+    width: 100%;
+}
+
+.rating {
+    width: 20px;
+    height: 20px;
+    border-radius: 25px;
+    background-color: var(--BTN-ACCENT);
+    top: 0px;
+    right: 0px;
+    margin: 10px;
+    float: right;
+    text-align: center;
+    padding: 15px;
+}
+
+.page2 {
+    position: absolute;
+    top: 8px;
+    left: 1px;
+    right: 1px;
+    height: 100%;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 100%;
+    place-items: center;
+    font-size: 70%;
+    opacity: 0;
+    z-index: 1;
+    transition: all 4000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.contact {
+    width: 400px;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 8% 20% 72%;
+    padding: 10px;
+    align-self: flex-start;
+    align-content: center;
+    place-items: center;
+    margin: 10px;
+    background-color: var(--CARD-CLR);
+    box-shadow: 0px 0px 3px 4px #03080f;
+    /* background-color: green; */
+}
+
+.contact label,
+.contact input {
+    width: 90%;
+}
+
+.contact p {
+    width: 100%;
+}
+
+.contact button {
+    width: 20%;
+    height: 95%;
+    justify-self: flex-end;
+}
+
+.contact form {
+    margin: 5%;
+    width: 100%;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 10% 65% 25%;
+    grid-gap: 5px;
+    max-height: 500px;
+}
+
+.info {
+    display: grid;
+    grid-auto-columns: 50% 50%;
+    height: 100%;
+}
+
+.cname,
+.cemail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cemail {
+    margin-left: 5px;
+}
+
+.cmessage {
+    grid-column: 1 / span 2;
+    height: 100%;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.contact form textarea {
+    width: calc(100% - 15px);
+    resize: none;
+    height: 75px;
+    background-color: var(--INPUT);
+}
+
+@media (max-width: 800px) {
+     :root {
+        font-size: 80%;
+    }
+    .page1 {
+        display: grid;
+        grid-auto-columns: 100%;
+        grid-auto-rows: 40% 60%;
+    }
+    nav {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        align-content: center;
+    }
+    .cards {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        align-content: flex-start;
+    }
+    .page1 form {
+        width: 100%;
+        padding: 0 5px;
+        margin: 0;
+        align-content: center;
+    }
+    .fs3 {
+        display: grid;
+        grid-auto-columns: 30% 70%;
+        grid-column-gap: 5vw;
+    }
+    .minScore {
+        grid-row: 1;
+        grid-column: 1;
+        width: 100%
+    }
+    .orderBys {
+        grid-row: 1;
+        grid-column: 2;
+        width: 100%;
+    }
+    .sortDirection {
+        display: grid;
+        grid-auto-columns: 20% 60% 20%;
+        grid-auto-rows: 100%;
+        width: calc(100% - 5vw - 1px);
+    }
+    button {
+        border: none !important;
+        outline: none !important;
+        width: 100%;
+        padding: 0.5vw;
+        background-color: var(--BTN-ACCENT);
+    }
+    .uparrow {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .clear {
+        grid-column: 3;
+        grid-row: 1;
+    }
+    .orderby {
+        width: 100%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    input {
+        border: none !important;
+        outline: none !important;
+        padding: 0.5vw;
+        background-color: var(--INPUT);
+    }
+    .rating {
+        width: 15px;
+        height: 15px;
+        border-radius: 17px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+     :root {
+        font-size: 60%;
+    }
+    .fs3 {
+        display: grid;
+        grid-auto-columns: 100%;
+        grid-auto-rows: 33% 66%;
+        grid-column-gap: 5vw;
+    }
+    .minScore {
+        grid-row: 1;
+        grid-column: 1;
+        width: 100%;
+        margin-bottom: 1vw;
+    }
+    .orderBys {
+        grid-row: 2;
+        grid-column: 1;
+        width: 100%;
+        margin-top: 1vw;
+    }
+    .sortDirection {
+        display: grid;
+        grid-auto-columns: 25% 75%;
+        grid-auto-rows: calc(50% - 1vw) auto;
+        width: 100%;
+    }
+    button {
+        border: none !important;
+        outline: none !important;
+        width: 100%;
+        padding: 0.5vw;
+        background-color: var(--BTN-ACCENT);
+    }
+    .uparrow {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .clear {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        margin-top: 2vw;
+    }
+    .orderby {
+        width: calc(100% - 1vw);
+        grid-column: 2;
+        grid-row: 1;
+    }
+    input {
+        border: none !important;
+        outline: none !important;
+        padding: 0.5vw;
+        background-color: var(--INPUT);
+    }
+    .rating {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    .cards::-webkit-scrollbar {
+        display: none;
+        width: 8px;
+        height: 5px;
+        border-radius: 10px;
+    }
+}
+
+.cards::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+    border-radius: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+    background-color: var(--BTN-ACCENT);
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px rgba(55, 55, 100), inset -2px -2px 2px rgb(0, 0, 200);
+}
+
+.cards::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    box-shadow: inset 4px 4px 4px rgba(50, 50, 50), inset -4px -4px 4px rgb(0, 0, 0);
+}
+
+.cards::-webkit-scrollbar-button {
+    background-color: darkblue;
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px 2px rgb(0, 0, 0, 0.4);
+}
+
+section::-webkit-scrollbar-corner {
+    background-color: lightblue;
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px 2px rgb(0, 0, 0, 0.4);
+}
+
+.cards::-webkit-scrollbar-track-piece {
+    background-color: rgb(5, 12, 12);
+    box-shadow: inset 5px 5px 3px rgba(0, 0, 0), inset -5px -5px 3px rgb(0, 0, 0);
+    height: 2px;
+}
